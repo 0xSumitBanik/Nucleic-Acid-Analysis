@@ -27,7 +27,7 @@ $(function() {
  function nucleotideCount() {
  
  
-  let dna_sequence = document.getElementById('dna').value;
+  let dna_sequence = document.getElementById('dna').value.toUpperCase();
 
   if(dna_sequence == ""){
     alert("Please enter a DNA Sequence")
@@ -46,7 +46,7 @@ $(function() {
  
  //finding the GC and AT Content of a DNA
  function findGC_ATcontent() {
-  let dna_sequence = document.getElementById('dna').value;
+  let dna_sequence = document.getElementById('dna').value.toUpperCase();
   if(dna_sequence == ""){
     alert("Please enter a DNA Sequence")
     return
@@ -60,7 +60,7 @@ $(function() {
   let at_content = ((a + t) / (g + c + a + t) * 100).toFixed(2) + "%";
   if (dna_sequence == "") {
    document.getElementById('dna').style.border = "1px solid red";
-   document.getElementById('gc_ac-content').innerHTML = "";
+   document.getElementById('gc_at-content').innerHTML = "";
   } else {
    document.getElementById('gc_at-content').innerHTML = "GC Content: " + gc_content + `<br>` +
     "AT Content: " + at_content;
@@ -69,8 +69,8 @@ $(function() {
  
  //Calculating Hamming Distance
  function calcHD() {
-  let dna1 = document.getElementById('dna1').value
-  let dna2 = document.getElementById('dna2').value
+  let dna1 = document.getElementById('dna1').value.toUpperCase()
+  let dna2 = document.getElementById('dna2').value.toUpperCase()
   if(dna1 == "" && dna2!=""){
     alert("Please enter a DNA1")
     return
@@ -100,7 +100,7 @@ $(function() {
  
  //Converting DNA to RNA
  function dnaToRna() {
-  let dna_sequence = document.getElementById('dna').value;
+  let dna_sequence = document.getElementById('dna').value.toUpperCase();
   if(dna_sequence == ""){
     alert("Please enter a DNA Sequence")
     return
@@ -117,7 +117,7 @@ $(function() {
  
  //Complementing the DNA
  function dnaComplement() {
-  let dna_sequence = document.getElementById('dna').value;
+  let dna_sequence = document.getElementById('dna').value.toUpperCase();
   if(dna_sequence == ""){
     alert("Please enter a DNA Sequence")
     return
