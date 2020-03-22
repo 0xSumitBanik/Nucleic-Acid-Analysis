@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Nucleic Acid Analysis</title>
+
+  <link rel="icon" href="assets/img/favicon.ico" sizes="16x16" type="image/png">
+  <link rel="stylesheet" href="assets/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+  <!-- Navbar  -->
+  <div id="navbar">
+    
+  </div>
+  <!-- DNA to RNA -->
+  <div class="container" id="gc-at-content">
+    <p style="text-align:center;font-size:26px;">Complement of DNA</p>
+    <h6>Enter the DNA Sequence</h6>
+      <input type="text" id="dna" name="dna" onkeypress="dnaSequenceValid()" required><br>
+      <input type="button" class="customButton" value="Submit" onclick="dnaComplement()"><br><br>
+    <p id="dna-complement" style="color:blue;"></p>
+  </div>
+</body>
+</html>
