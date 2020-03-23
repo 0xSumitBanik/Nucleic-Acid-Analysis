@@ -12,6 +12,8 @@ This Repository contains code related to mini programming of Nucleic Acid Analys
 ![](https://raw.githubusercontent.com/iSumitBanik/Nucleic-Acid-Analysis/master/assets/img/4.png)
 5. Point Mutation Count 
 ![](https://raw.githubusercontent.com/iSumitBanik/Nucleic-Acid-Analysis/master/assets/img/5.png)
+6. Translation of RNA
+![](https://raw.githubusercontent.com/iSumitBanik/Nucleic-Acid-Analysis/master/assets/img/6.png)
 
 *more to be updated*, as I will be learning the theoretical aspect gradually.
 
