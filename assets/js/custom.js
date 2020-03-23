@@ -29,7 +29,7 @@ $(function() {
  
   let dna_sequence = document.getElementById('dna').value.toUpperCase();
 
-  if(dna_sequence == ""){
+  if(dna_sequence.match(/^\s+$/) || dna_sequence == ""){
     alert("Please enter a DNA Sequence")
     return
   }
@@ -44,10 +44,47 @@ $(function() {
    " T: " + `${t}`;
  }
  
+ function rnaToProtein()
+ {
+   const rna_codon_table = {
+    "UUU": "F",      "CUU": "L",      "AUU": "I",      "GUU": "V",
+    "UUC": "F",      "CUC": "L",      "AUC": "I",      "GUC": "V",
+    "UUA": "L",      "CUA": "L",      "AUA": "I",      "GUA": "V",
+    "UUG": "L",      "CUG": "L",      "AUG": "M",      "GUG": "V",
+    "UCU": "S",      "CCU": "P",      "ACU": "T",      "GCU": "A",
+    "UCC": "S",      "CCC": "P",      "ACC": "T",      "GCC": "A",
+    "UCA": "S",      "CCA": "P",      "ACA": "T",      "GCA": "A",
+    "UCG": "S",      "CCG": "P",      "ACG": "T",      "GCG": "A",
+    "UAU": "Y",      "CAU": "H",      "AAU": "N",      "GAU": "D",
+    "UAC": "Y",      "CAC": "H",      "AAC": "N",      "GAC": "D",
+    "UAA": "",       "CAA": "Q",      "AAA": "K",      "GAA": "E",
+    "UAG": "",       "CAG": "Q",      "AAG": "K",      "GAG": "E",
+    "UGU": 'C',      "CGU": "R",      "AGU": "S",      "GGU": "G",
+    "UGC": "C",      "CGC": "R",      "AGC": "S",      "GGC": "G",
+    "UGA": "",       "CGA": "R",      "AGA": "R",      "GGA": "G",
+    "UGG": "W",      "CGG": "R",      "AGG": "R",      "GGG": "G" 
+   }
+   
+   let rna_sequence = document.getElementById('rna').value;
+   if(rna_sequence.match(/^\s+$/) || rna_sequence=="")
+   {
+     alert("RNA Sequence cannot be blank")
+     return
+   }
+   let protein="" //Empty Protein
+   let temp=""
+   for(let i=0;i<rna_sequence.length;i+=3)
+   {
+      temp=(rna_sequence[i]+rna_sequence[i+1]+rna_sequence[i+2]).toUpperCase();
+      protein+= rna_codon_table[temp];
+   }
+   document.getElementById('rna-to-protein').innerHTML = "Protein: "+protein;
+ }
+
  //finding the GC and AT Content of a DNA
  function findGC_ATcontent() {
   let dna_sequence = document.getElementById('dna').value.toUpperCase();
-  if(dna_sequence == ""){
+  if(dna_sequence.match(/^\s+$/) || dna_sequence == ""){
     alert("Please enter a DNA Sequence")
     return
   }
@@ -71,16 +108,16 @@ $(function() {
  function calcHD() {
   let dna1 = document.getElementById('dna1').value.toUpperCase()
   let dna2 = document.getElementById('dna2').value.toUpperCase()
-  if(dna1 == "" && dna2!=""){
+  if(dna1.match(/^\s+$/) || dna1 == "" && dna2!=""){
     alert("Please enter a DNA1")
     return
   }
-  else if(dna2=="" && dna1!="")
+  else if(dna2.match(/^\s+$/) || dna2 =="" && dna1!="")
   {
     alert("Please enter a DNA2")
     return
   }
-  else if(dna2=="" && dna1==""){
+  else if(dna2.match(/^\s+$/) || dna2=="" && dna1.match(/^\s+$/) || dna1==""){
     alert("Both DNA Sequences cannot be blank")
     return
   }
@@ -138,6 +175,3 @@ $(function() {
   document.getElementById('dna-complement').innerHTML = "DNA Complement: <br>" + dna_complement;
  }
  
- function dnaSequenceValid() {
-  document.getElementById('dna').style.border = "0px";
- }
